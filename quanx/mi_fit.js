@@ -29,5 +29,4 @@ body = body.replace(/ttl%5C%22%3A[0-9]*%2C%5C%22dis/g,'ttl%5C%22%3A'+step+'%2C%5
 if(/ttl%5C%22%3A[0-9]*%2C%5C%22dis/g.test(body)) {
     $notify('mi_fit', '获取步数成功', step)
 }
-$.setdata($request.body, body)
-$done();
+$done({url:$request.url, body});
