@@ -22,11 +22,12 @@
 
 var step =24510 // 可自定义
 var body = $request.body;
+console.log('body-->', body)
 
 body = body.replace(/ttl%5C%22%3A[0-9]*%2C%5C%22dis/g,'ttl%5C%22%3A'+step+'%2C%5C%22dis')
 
 if(/ttl%5C%22%3A[0-9]*%2C%5C%22dis/g.test(body)) {
     $notify('mi_fit', '获取步数成功', step)
 }
-
-$done(body);
+$.setdata($request.body, body)
+$done();
