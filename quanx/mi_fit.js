@@ -11,18 +11,16 @@
 
 */
 
-/**
- * @fileoverview Example of HTTP rewrite.
- *
- * @supported Quantumult X (v1.0.5-build173)
- */
-
-
 // 原理会在同步手环信息的时候修改步数
 
-var step =24510 // 可自定义
+var step = 24510 // 可自定义
+
+// 采用随机数 范围是 24000 - 25000 之间
+var max = 25000
+var min = 24000
+step = parseInt(Math.random()*(max-min+1)+min,10)
+
 var body = $request.body;
-console.log('body-->', body)
 
 body = body.replace(/ttl%5C%22%3A[0-9]*%2C%5C%22dis/g,'ttl%5C%22%3A'+step+'%2C%5C%22dis')
 
